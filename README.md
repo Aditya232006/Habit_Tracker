@@ -58,6 +58,4 @@ Habit Tracker is a web-based application designed to help users build and mainta
 - Aditya Rathi
 - SY (CSE A)
 
----
 
-## 📂 Project Structure
