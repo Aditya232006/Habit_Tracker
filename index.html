@@ -1,0 +1,67 @@
+<!-- create layout with input field button and list to display habits -->
+
+<!-- add section to show streak weekly progress and reminder messages -->
+
+<!-- link css and javascript files for styling and functionality -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">   
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Habit Tracker</h1>
+        <div class="input-section">
+            <input type="text" id="habit-input" placeholder="Add a new habit (e.g., Exercise, Read, Meditate)">
+            <button id="add-habit-btn">+ Add</button>
+        </div>
+        
+        <div class="badge-info-section">
+            <h3>📈 Badge Levels</h3>
+            <div class="badge-levels">
+                <div class="level-item">
+                    <span class="level-badge">🌱</span>
+                    <span class="level-name">Starter</span>
+                    <span class="level-days">0 days</span>
+                </div>
+                <div class="level-item">
+                    <span class="level-badge">🥉</span>
+                    <span class="level-name">Bronze</span>
+                    <span class="level-days">7 days</span>
+                </div>
+                <div class="level-item">
+                    <span class="level-badge">🥈</span>
+                    <span class="level-name">Silver</span>
+                    <span class="level-days">14 days</span>
+                </div>
+                <div class="level-item">
+                    <span class="level-badge">🥇</span>
+                    <span class="level-name">Gold</span>
+                    <span class="level-days">30 days</span>
+                </div>
+                <div class="level-item">
+                    <span class="level-badge">🏆</span>
+                    <span class="level-name">Platinum</span>
+                    <span class="level-days">60 days</span>
+                </div>
+                <div class="level-item">
+                    <span class="level-badge">💎</span>
+                    <span class="level-name">Diamond</span>
+                    <span class="level-days">100 days</span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="habit-list" class="habits-container"></div>
+        <div class="streak-section">
+            <h2>📊 Daily Progress</h2>
+            <p id="reminder-message">Keep up the good work!</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

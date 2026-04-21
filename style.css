@@ -1,0 +1,471 @@
+/* Create clean card style layout for habits with spacing and simple colors */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 28px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+#habit-input {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+#habit-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+#add-habit-btn {
+    padding: 12px 24px;
+    background-color: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+#add-habit-btn:hover {
+    background-color: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.habits-container {
+    margin-bottom: 30px;
+}
+
+.badge-info-section {
+    background-color: #f5f5f5;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.badge-info-section h3 {
+    color: #333;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.badge-levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+}
+
+.level-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    transition: all 0.3s;
+}
+
+.level-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.level-badge {
+    font-size: 28px;
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.level-name {
+    font-weight: bold;
+    font-size: 12px;
+    color: #333;
+    text-align: center;
+}
+
+.level-days {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+}
+.habit-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+    animation: slideIn 0.3s ease;
+}
+
+.habit-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.habit-card.done {
+    background-color: #f0f8f0;
+    border-color: #4caf50;
+}
+
+.habit-card h3 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.habit-card p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.habit-card .progress {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 20px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.habit-card .progress-bar {
+    background-color: #4caf50;
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease;
+}
+
+.habit-card .actions {
+    display: flex;
+    gap: 8px;
+}
+
+.habit-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    gap: 16px;
+}
+
+.habit-info {
+    flex: 1;
+}
+
+.badge-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    min-width: 70px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.badge:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.badge-emoji {
+    font-size: 24px;
+    display: block;
+    line-height: 1;
+}
+
+.badge-text {
+    font-size: 11px;
+    margin-top: 2px;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+.badge-starter {
+    background-color: #f0f7eb;
+    color: #558b2f;
+    border: 2px solid #8BC34A;
+}
+
+.badge-bronze {
+    background-color: #fdf5e6;
+    color: #8b4513;
+    border: 2px solid #CD7F32;
+}
+
+.badge-silver {
+    background-color: #f5f5f5;
+    color: #555555;
+    border: 2px solid #C0C0C0;
+}
+
+.badge-gold {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #b8860b;
+    border: 2px solid #FFD700;
+    box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+}
+
+.badge-platinum {
+    background: linear-gradient(135deg, #e1bee7 0%, #f3e5f5 100%);
+    color: #7b1fa2;
+    border: 2px solid #9C27B0;
+    box-shadow: 0 2px 8px rgba(156, 39, 176, 0.3);
+}
+
+.badge-diamond {
+    background: linear-gradient(135deg, #b2ebf2 0%, #e0f2f1 100%);
+    color: #00695c;
+    border: 2px solid #00BCD4;
+    box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
+}
+
+.badge-progress {
+    background-color: #e8eaf6;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 6px;
+    margin-bottom: 8px;
+    display: none;
+}
+
+.habit-card.done .badge-progress {
+    display: block;
+}
+
+.badge-progress-bar {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    height: 100%;
+    width: 0;
+    transition: width 0.4s ease;
+}
+
+.habit-stats {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.habit-stats .streak {
+    background-color: #fff3cd;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: #856404;
+    font-weight: bold;
+}
+
+.habit-stats .today-status {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+}
+
+.habit-card.done .today-status {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+.habit-card:not(.done) .today-status {
+    background-color: #ffe0b2;
+    color: #e65100;
+}
+
+.habit-card .actions button {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.habit-card .done-btn {
+    background-color: #4caf50;
+    color: white;
+}
+
+.habit-card .done-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.habit-card .delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.habit-card .delete-btn:hover {
+    background-color: #da190b;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(244, 67, 54, 0.3);
+}
+
+.streak-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.streak-section h2 {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.streak-section p {
+    color: #f0f0f0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        border-radius: 8px;
+    }
+    
+    .badge-levels {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .habit-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .badge-container {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 8px;
+    }
+    
+    .badge {
+        min-width: 65px;
+        padding: 6px 10px;
+    }
+    
+    .badge-emoji {
+        font-size: 20px;
+    }
+    
+    .badge-text {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 16px;
+    }
+    
+    h1 {
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+    
+    .input-section {
+        margin-bottom: 20px;
+    }
+    
+    #habit-input {
+        padding: 10px;
+        font-size: 14px;
+    }
+    
+    #add-habit-btn {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+    
+    .badge-levels {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .level-item {
+        padding: 8px;
+    }
+    
+    .level-badge {
+        font-size: 24px;
+    }
+    
+    .level-name {
+        font-size: 11px;
+    }
+    
+    .level-days {
+        font-size: 10px;
+    }
+}
